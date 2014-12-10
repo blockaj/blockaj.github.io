@@ -1,0 +1,71 @@
+<html>
+	<head>
+		<title>blockaj</title>
+		<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,600,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,400italic' rel='stylesheet' type='text/css'>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="reset.css" />
+		<link rel="stylesheet" href="style.css" />
+		<script>
+			$(function(){
+				$.get("https://api.github.com/users/blockaj/repos", function(data){
+					for (var i = 0; i < 10; i++) {
+						console.log(data[i]);
+						$("ul.github-projects").append("<a class='no_dec' href='http://github.com/" + data[i].full_name + "'><li class='github-project'>" + data[i].name + "</li></a>");
+					}
+				});
+				var javascriptProficiency = document.getElementById('javascript-proficiency');
+				var javascriptProficiencyx = javascriptProficiency.getContext("2d");
+				javascriptProficiencyx.fillStyle = '#4f5b66';
+				var i = 0;
+				var javascriptInterval = setInterval(function(){
+					if (i < 300) {
+						javascriptProficiencyx.fillRect(0, 0, i, 30);
+					}
+					i++;
+					console.log(i);
+					clearInterval(this);
+				}, 1);
+				if (i == 300) {
+					clearInterval(javascriptInterval);
+				}
+				
+				
+				
+			});
+			
+		</script>
+	</head>
+	<body>
+		<div id="header">
+			<h1><a class="no_dec" href="http://blockaj.github.io">Aaron Block</a></h1>
+			<ul class="descriptors">
+				<li class="menubar-item"><a class="no_dec menubar-item" href="http://facebook.com/blockaj">Facebook</a></li>
+				<li class="menubar-item"><a class="no_dec menubar-item" href="http://twitter.com/aaronblockesq">Twitter</a></li>
+				<li class="menubar-item"><a class="no_dec menubar-item" href="http://github.com/blockaj">Github</a></li>
+			</ul>
+		</div>
+		<!--<div class="header-fill"></div>
+		<div id="main-body">
+			<div class="github-projects main-body-elem">
+				<h2>Recent projects</h2>
+				<ul class="github-projects">
+				</ul>
+			</div>
+			<div class="experience main-body-elem">
+				<h2>Experience</h2>
+				<ul class="experince">
+					<li class="experience-item"><span class="top-line">Intern, P'unk Avenue,</span><span class="date">Philadelphia, PA November 2014 - June 2015</span><p class="exp-description">Contributed to P'unk Ave's open-source CMS: Apostrophe. </p></li>
+				</ul>
+			</div>
+			<div class="skills main-body-elem">
+				<h2>Skills</h2>
+				<table class="skills">
+				<tr class="skill">
+					<td class="skill-title">Javascript</td><td class="skill-proficiency"><canvas width="300px" height="50px" id="javascript-proficiency"></canvas></td>
+				</tr>
+				</table>
+			</div>
+		</div>-->
+	</body>
+</html>
